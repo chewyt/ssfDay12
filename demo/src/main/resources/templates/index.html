@@ -10,7 +10,7 @@
 
 <body>
     <div>
-        <h1>How many numbers do you wish to generate? Static</h1>
+        <h1>How many numbers do you wish to generate? Template</h1>
     </div>
 
     <form action="test.html" method="get">
@@ -18,7 +18,9 @@
         <input type="submit" value="Generate" id="Generate">
     </form>
 
-
+    <div>
+        <h3 th:text=${errorMsg}>No error occured.</h3>
+    </div>
 </body>
 
 </html>
