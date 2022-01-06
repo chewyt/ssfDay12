@@ -18,6 +18,10 @@ img.error {
 
 div.images {
   display: flex;
-  flex-direction:calc();
-  justify-content: space-around;
+  flex-wrap: wrap;
+  
+}
+
+img{
+  padding: 10px;
 }

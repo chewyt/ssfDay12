@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    <h1>Your list of <span th:text=${num}>xx</span> random numbers via GET Method</h1>
+    <h1>Your list of <span th:text=${num}>xx</span> random numbers via POST method</h1>
     <div class="images">
         <div th:each="num: ${list}">
             <img th:src="@{'numbers/number'+${num}+'.jpg'}" th:alt="@{'number '+${num}}" width="100em">
         </div>
     </div>
-    <h3>Click <a href="index.html">here</a> to return to homepage</h3>
+    <h3>Click <a href="post.html">here</a> to return to homepage</h3>
 </body>
 
 </html>

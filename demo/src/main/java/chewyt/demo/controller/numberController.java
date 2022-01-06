@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -36,6 +38,27 @@ public class numberController {
             model.addAttribute("num", num.size());
             model.addAttribute("list", num);
             return "test";
+        }
+
+    }
+
+    @PostMapping(path = "/noQuery"/* , produces = "application/x-www-form-urlencoded", consumes = "text/html" */)
+    public String getDatabyPost(@ModelAttribute numberService nServ, Model model) {
+        System.out.println("[Controller] Request Body: " + nServ.getNumber());
+        List<Integer> num = nserv.sendData(nServ.getNumber());
+        // model.addAttribute("num", num.size());
+        // model.addAttribute("list", num);
+        // return "lol";
+        if (num.contains(-1)) {
+            model.addAttribute("errorMsg", "This is not a number. Please try again.");
+            return "post";
+        } else if (num.contains(-2)) {
+            model.addAttribute("errorMsg", "Number is not within range of 3 - 30. Please try again.");
+            return "post";
+        } else {
+            model.addAttribute("num", num.size());
+            model.addAttribute("list", num);
+            return "lol";
         }
 
     }
